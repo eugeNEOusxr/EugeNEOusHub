@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.dark-theme {
+    background-color: #000010;
+    color: #e5e7eb; /* gray-200 */
+}
+
+.header-glow {
+    text-shadow:
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 10px rgba(192, 192, 255, 0.6),
+        0 0 20px rgba(100, 100, 255, 0.5),
+        0 0 40px rgba(100, 100, 255, 0.4);
+}
+
+/* Modal Styles - Kept for the Avatar Studio */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: rgba(10, 10, 30, 0.9);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 40rem; /* 640px */
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+    position: relative;
+}
+
+.modal-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #a5f3fc; /* cyan-200 */
+}
+
+.modal-input, .modal-textarea, .modal-select {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: #e5e7eb; /* gray-200 */
+    transition: all 0.2s ease;
+}
+
+.modal-input:focus, .modal-textarea:focus, .modal-select:focus {
+    outline: none;
+    border-color: #67e8f9; /* cyan-300 */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.modal-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.modal-button {
+    background-color: rgba(0, 255, 255, 0.2);
+    border: 1px solid #00ffff;
+    color: #00ffff;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal-button:hover:not(:disabled) {
+    background-color: #00ffff;
+    color: #000;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.modal-button-secondary {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #d1d5db; /* gray-300 */
+}
+.modal-button-secondary:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+
+.modal-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeOutLate {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.animate-fade-out-late {
+    animation: fadeOutLate 5s ease-in-out forwards;
+    animation-delay: 2s;
+}
+
+/* Consciousness Stream Styles */
+.consciousness-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 60rem; /* 960px */
+    padding: 0 1rem;
+    text-align: center;
+    pointer-events: none;
+    z-index: 20;
+    font-family: 'Lora', serif;
+}
+
+.consciousness-text {
+    color: #a5f3fc; /* cyan-200 */
+    font-size: 1.125rem; /* 18px */
+    font-style: italic;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.consciousness-text.visible {
+    opacity: 1;
+}
